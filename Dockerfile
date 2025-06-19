@@ -11,6 +11,8 @@ RUN apt-get update && apt-get install -y \
     git \
     sudo \
     netcat-openbsd \
+    lsof \
+    procps \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Node.js for frontend build

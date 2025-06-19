@@ -1,6 +1,6 @@
 # backend/app/api/restore.py
 from fastapi import APIRouter, HTTPException, BackgroundTasks
-from typing import Dict, Any, List
+from typing import Optional
 
 from ..models import RestoreRequest, BackupType
 from ..config import get_settings

@@ -8,6 +8,7 @@ import logging
 from ..models import LogEntry, BackupProgress
 from ..core.backup_engine import BackupEngine
 from ..config import get_settings
+from datetime import datetime
 
 logger = logging.getLogger(__name__)
 

@@ -451,7 +451,7 @@ class BackupEngine:
                 size_bytes=result.size_bytes,
                 duration_seconds=result.duration_seconds,
                 error_message=result.error_message,
-                metadata={"subvolumes": result.subvolumes}
+                extra_metadata={"subvolumes": result.subvolumes}
             )
             session.add(history)
             await session.commit()

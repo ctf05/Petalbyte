@@ -3,7 +3,6 @@ from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sess
 from sqlalchemy.orm import declarative_base
 from sqlalchemy import Column, Integer, String, DateTime, Float, JSON, Boolean, Text
 from datetime import datetime
-import os
 
 # Database URL
 DATABASE_URL = "sqlite+aiosqlite:////app/data/backup_manager.db"
@@ -39,7 +38,7 @@ class BackupHistory(Base):
     subvolume = Column(String(100))
     snapshot_path = Column(String(500))
     remote_path = Column(String(500))
-    metadata = Column(JSON)
+    extra_metadata = Column(JSON)
 
 class SentSnapshot(Base):
     __tablename__ = "sent_snapshots"
@@ -61,7 +60,7 @@ class SystemMetric(Base):
     metric_type = Column(String(50), nullable=False)  # cpu, memory, disk, bandwidth
     value = Column(Float, nullable=False)
     unit = Column(String(20))
-    metadata = Column(JSON)
+    extra_metadata = Column(JSON)
 
 class DependencyStatus(Base):
     __tablename__ = "dependency_status"
@@ -72,7 +71,7 @@ class DependencyStatus(Base):
     last_check = Column(DateTime, default=datetime.utcnow)
     message = Column(Text)
     can_fix = Column(Boolean, default=False)
-    metadata = Column(JSON)
+    extra_metadata = Column(JSON)
 
 # Database initialization
 async def init_db():

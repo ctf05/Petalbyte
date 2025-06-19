@@ -101,8 +101,8 @@ class Dependency(ABC):
                 if existing:
                     # Update
                     await session.execute(
-                        """UPDATE dependency_status 
-                           SET status = ?, message = ?, last_check = ?, can_fix = ?, metadata = ?
+                        """UPDATE dependency_status
+                           SET status = ?, message = ?, last_check = ?, can_fix = ?, extra_metadata = ?
                            WHERE name = ?""",
                         (info.status, info.message, info.last_check,
                          info.can_fix, info.metadata, self.name)
@@ -110,8 +110,8 @@ class Dependency(ABC):
                 else:
                     # Insert
                     await session.execute(
-                        """INSERT INTO dependency_status 
-                           (name, status, message, last_check, can_fix, metadata)
+                        """INSERT INTO dependency_status
+                               (name, status, message, last_check, can_fix, extra_metadata)
                            VALUES (?, ?, ?, ?, ?, ?)""",
                         (self.name, info.status, info.message, info.last_check,
                          info.can_fix, info.metadata)

@@ -1,6 +1,6 @@
 # backend/app/api/settings.py
 from fastapi import APIRouter, HTTPException
-from typing import Dict, Any
+from typing import Dict, Any, Optional
 
 from ..config import get_settings, reload_settings, Settings
 from ..models import SettingsUpdate
