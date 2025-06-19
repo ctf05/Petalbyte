@@ -1,7 +1,7 @@
 // frontend/src/store/statusSlice.ts
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { statusApi } from '@/api/status';
-import type { SystemStatus } from '@/api/status';
+import { statusApi } from '../api/status';
+import type { SystemStatus } from '../api/status';
 
 interface StatusState {
     data: SystemStatus | null;

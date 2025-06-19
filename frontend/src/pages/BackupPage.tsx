@@ -43,15 +43,15 @@ import {
     CloudDownload as DownloadIcon,
 } from '@mui/icons-material';
 import { format } from 'date-fns';
-import { useAppDispatch, useAppSelector } from '@/hooks/store';
+import { useAppDispatch, useAppSelector } from '../hooks/store';
 import {
     startBackup,
     cancelBackup,
     fetchBackupHistory,
     fetchBackupProgress,
-} from '@/store/backupSlice';
-import { showNotification } from '@/store/notificationSlice';
-import { WebSocketClient } from '@/api/client';
+} from '../store/backupSlice';
+import { showNotification } from '../store/notificationSlice';
+import { WebSocketClient } from '../api/client';
 
 interface TabPanelProps {
     children?: React.ReactNode;

@@ -32,7 +32,7 @@ import {
     CloudQueue as CloudIcon,
     Build as BuildIcon,
 } from '@mui/icons-material';
-import { useAppSelector } from '@/hooks/store';
+import { useAppSelector } from '../../hooks/store';
 import NotificationSnackbar from './NotificationSnackbar';
 
 const drawerWidth = 240;

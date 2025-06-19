@@ -1,7 +1,7 @@
 // frontend/src/store/monitoringSlice.ts
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { monitoringApi } from '@/api/monitoring';
-import type { SystemMetrics, StorageStats, BandwidthUsage } from '@/api/monitoring';
+import { monitoringApi } from '../api/monitoring';
+import type { SystemMetrics, StorageStats, BandwidthUsage } from '../api/monitoring';
 
 interface MonitoringState {
     metrics: SystemMetrics | null;

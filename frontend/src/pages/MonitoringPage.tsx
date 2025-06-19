@@ -30,8 +30,8 @@ import {
     Legend,
     ResponsiveContainer,
 } from 'recharts';
-import { useAppDispatch, useAppSelector } from '@/hooks/store';
-import { fetchMetrics, fetchStorageStats, fetchBandwidthUsage } from '@/store/monitoringSlice';
+import { useAppDispatch, useAppSelector } from '../hooks/store';
+import { fetchMetrics, fetchStorageStats, fetchBandwidthUsage } from '../store/monitoringSlice';
 
 const MonitoringPage: React.FC = () => {
     const theme = useTheme();

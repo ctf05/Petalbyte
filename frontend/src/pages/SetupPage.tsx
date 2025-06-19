@@ -42,9 +42,9 @@ import {
     Folder as FolderIcon,
     Code as CodeIcon,
 } from '@mui/icons-material';
-import { setupApi } from '@/api/setup';
-import { useAppDispatch } from '@/hooks/store';
-import { showNotification } from '@/store/notificationSlice';
+import { setupApi } from '../api/setup';
+import { useAppDispatch } from '../hooks/store';
+import { showNotification } from '../store/notificationSlice';
 
 interface DeviceInfo {
     name: string;

@@ -40,9 +40,9 @@ import {
     Network as NetworkIcon,
 } from '@mui/icons-material';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
-import { useAppDispatch, useAppSelector } from '@/hooks/store';
-import { loadSettings, updateSettings, resetSettings } from '@/store/settingsSlice';
-import { showNotification } from '@/store/notificationSlice';
+import { useAppDispatch, useAppSelector } from '../hooks/store';
+import { loadSettings, updateSettings, resetSettings } from '../store/settingsSlice';
+import { showNotification } from '../store/notificationSlice';
 
 interface TabPanelProps {
     children?: React.ReactNode;

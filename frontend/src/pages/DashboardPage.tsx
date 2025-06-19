@@ -28,10 +28,10 @@ import {
     CloudQueue as CloudIcon,
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '@/hooks/store';
-import { fetchSystemStatus } from '@/store/statusSlice';
-import { fetchBackupHistory } from '@/store/backupSlice';
-import { fetchStorageStats } from '@/store/monitoringSlice';
+import { useAppDispatch, useAppSelector } from '../hooks/store';
+import { fetchSystemStatus } from '../store/statusSlice';
+import { fetchBackupHistory } from '../store/backupSlice';
+import { fetchStorageStats } from '../store/monitoringSlice';
 import { formatDistanceToNow, format } from 'date-fns';
 
 const DashboardPage: React.FC = () => {

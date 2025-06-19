@@ -1,7 +1,7 @@
 // frontend/src/api/client.ts
 import axios, { AxiosInstance, AxiosError, AxiosRequestConfig } from 'axios';
-import { store } from '@/store';
-import { showNotification } from '@/store/notificationSlice';
+import { store } from '../store';
+import { showNotification } from '../store/notificationSlice';
 
 // Create axios instance
 export const apiClient: AxiosInstance = axios.create({

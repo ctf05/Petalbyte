@@ -1,7 +1,7 @@
 // frontend/src/store/dependenciesSlice.ts
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { dependenciesApi } from '@/api/dependencies';
-import type { DependencyInfo } from '@/api/dependencies';
+import { dependenciesApi } from '../api/dependencies';
+import type { DependencyInfo } from '../api/dependencies';
 
 interface DependenciesState {
     items: DependencyInfo[];

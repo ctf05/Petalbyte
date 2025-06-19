@@ -29,9 +29,9 @@ import {
     ExpandLess as ExpandLessIcon,
     Info as InfoIcon,
 } from '@mui/icons-material';
-import { useAppDispatch, useAppSelector } from '@/hooks/store';
-import { checkDependencies, fixDependency } from '@/store/dependenciesSlice';
-import { showNotification } from '@/store/notificationSlice';
+import { useAppDispatch, useAppSelector } from '../hooks/store';
+import { checkDependencies, fixDependency } from '../store/dependenciesSlice';
+import { showNotification } from '../store/notificationSlice';
 
 const DependenciesPage: React.FC = () => {
     const dispatch = useAppDispatch();

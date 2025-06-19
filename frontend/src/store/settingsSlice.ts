@@ -1,7 +1,7 @@
 // frontend/src/store/settingsSlice.ts
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { settingsApi } from '@/api/settings';
-import type { Settings, SettingsUpdate } from '@/api/settings';
+import { settingsApi } from '../api/settings';
+import type { Settings, SettingsUpdate } from '../api/settings';
 
 interface SettingsState {
     data: Settings | null;

@@ -1,8 +1,8 @@
 // frontend/src/components/common/NotificationSnackbar.tsx
 import React from 'react';
 import { Snackbar, Alert, Stack } from '@mui/material';
-import { useAppSelector, useAppDispatch } from '@/hooks/store';
-import { hideNotification } from '@/store/notificationSlice';
+import { useAppSelector, useAppDispatch } from '../../hooks/store';
+import { hideNotification } from '../../store/notificationSlice';
 
 const NotificationSnackbar: React.FC = () => {
     const dispatch = useAppDispatch();
