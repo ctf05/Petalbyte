@@ -1,0 +1,54 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  btrfs-backup-manager:
+    build: .
+    container_name: btrfs-backup-manager
+    privileged: true
+    network_mode: host
+    ports:
+      - "8000:8000"
+      - "3000:3000"
+    volumes:
+      # Host filesystem access (read-only for safety)
+      - /:/host:ro
+      - /home:/host-home:ro
+
+      # Writable snapshot directory
+      - /.snapshots:/.snapshots
+
+      # Settings and database persistence
+      - ./data:/app/data
+
+      # SSH keys
+      - ~/.ssh:/root/.ssh
+
+      # For Tailscale
+      - /var/lib/tailscale:/var/lib/tailscale
+
+      # Docker socket for some operations
+      - /var/run/docker.sock:/var/run/docker.sock
+
+    environment:
+      - PYTHONUNBUFFERED=1
+      - HOST_ROOT=/host
+      - HOST_HOME=/host-home
+
+    restart: unless-stopped
+
+    # Required for btrfs operations
+    devices:
+      - /dev/mapper:/dev/mapper
+
+    # Required capabilities
+    cap_add:
+      - SYS_ADMIN
+      - DAC_OVERRIDE
+
+    # Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
