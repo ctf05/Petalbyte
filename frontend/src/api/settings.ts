@@ -14,7 +14,7 @@ export interface Settings {
     snapshot_dir: string;
     encryption_key_path: string;
     sent_snapshots_db: string;
-    settings_file: string;
+    settings_file_path: string;
     use_tailscale: boolean;
     tailscale_timeout: number;
     backup_schedule_enabled: boolean;
@@ -43,6 +43,7 @@ export interface SettingsUpdate {
     notifications_enabled?: boolean;
     notification_email?: string;
     notification_webhook?: string;
+    client_name?: string;
 }
 
 export interface ValidationResult {

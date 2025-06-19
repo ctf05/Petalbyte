@@ -13,6 +13,7 @@ class Settings(BaseSettings):
     app_name: str = "Btrfs Backup Manager"
     api_port: int = 8000
     secret_key: str = Field(default_factory=lambda: os.urandom(32).hex())
+    client_name: str = Field(default="petalbyte-client")
 
     # Backup settings
     months_to_keep: int = Field(default=2, ge=1, le=24)
@@ -29,7 +30,7 @@ class Settings(BaseSettings):
     snapshot_dir: str = "/.snapshots"
     encryption_key_path: str = "/app/data/backup-encryption.key"
     sent_snapshots_db: str = "/app/data/sent_snapshots.db"
-    settings_file: str = "/app/data/settings.json"
+    settings_file_path: str = "/app/data/settings.json"
 
     # Tailscale
     use_tailscale: bool = True
@@ -52,6 +53,7 @@ class Settings(BaseSettings):
     class Config:
         env_file = "/app/data/.env"
         env_file_encoding = "utf-8"
+        protected_namespaces = ('model_',)
 
     @validator("backup_schedule_time")
     def validate_time_format(cls, v):
@@ -67,7 +69,7 @@ class Settings(BaseSettings):
     def save(self):
         """Save settings to file"""
         settings_dict = self.dict(exclude={"secret_key"})
-        with open(self.settings_file, "w") as f:
+        with open(self.settings_file_path, "w") as f:
             json.dump(settings_dict, f, indent=2)
 
     @classmethod
@@ -77,6 +79,9 @@ class Settings(BaseSettings):
         if os.path.exists(settings_file):
             with open(settings_file, "r") as f:
                 data = json.load(f)
+            # Handle old field name for compatibility
+            if "settings_file" in data:
+                data["settings_file_path"] = data.pop("settings_file")
             return cls(**data)
         else:
             # Create default settings

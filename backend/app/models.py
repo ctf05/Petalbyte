@@ -81,6 +81,7 @@ class SettingsUpdate(BaseModel):
     notifications_enabled: Optional[bool] = None
     notification_email: Optional[str] = None
     notification_webhook: Optional[str] = None
+    client_name: Optional[str] = None
 
 class SystemStatus(BaseModel):
     status: str  # healthy, degraded, error
