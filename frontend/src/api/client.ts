@@ -1,11 +1,11 @@
 // frontend/src/api/client.ts
-import axios, { AxiosInstance, AxiosError, AxiosRequestConfig } from 'axios';
+import axios, { AxiosInstance, AxiosError } from 'axios';
 import { store } from '../store';
 import { showNotification } from '../store/notificationSlice';
 
 // Create axios instance
 export const apiClient: AxiosInstance = axios.create({
-    baseURL: import.meta.env.DEV ? 'http://localhost:8000' : '',
+    baseURL: 'http://localhost:8000',
     timeout: 30000,
     headers: {
         'Content-Type': 'application/json',

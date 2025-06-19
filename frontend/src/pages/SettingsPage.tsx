@@ -8,17 +8,12 @@ import {
     Grid,
     TextField,
     Button,
-    FormControl,
-    InputLabel,
-    Select,
-    MenuItem,
     Switch,
     FormControlLabel,
     Divider,
     Alert,
     Chip,
     InputAdornment,
-    IconButton,
     Dialog,
     DialogTitle,
     DialogContent,
@@ -32,14 +27,11 @@ import {
 import {
     Save as SaveIcon,
     RestartAlt as ResetIcon,
-    Visibility as VisibilityIcon,
-    VisibilityOff as VisibilityOffIcon,
     Schedule as ScheduleIcon,
     Storage as StorageIcon,
     Security as SecurityIcon,
-    Network as NetworkIcon,
+    NetworkCheck as NetworkIcon,
 } from '@mui/icons-material';
-import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { useAppDispatch, useAppSelector } from '../hooks/store';
 import { loadSettings, updateSettings, resetSettings } from '../store/settingsSlice';
 import { showNotification } from '../store/notificationSlice';
@@ -63,7 +55,6 @@ const SettingsPage: React.FC = () => {
     const { data: settings, saving } = useAppSelector((state) => state.settings);
     const [tabValue, setTabValue] = useState(0);
     const [localSettings, setLocalSettings] = useState<any>({});
-    const [showPassword, setShowPassword] = useState(false);
     const [resetDialogOpen, setResetDialogOpen] = useState(false);
     const [hasChanges, setHasChanges] = useState(false);
 
@@ -176,7 +167,7 @@ const SettingsPage: React.FC = () => {
                 )}
 
                 <Paper>
-                    <Tabs value={tabValue} onChange={(e, v) => setTabValue(v)}>
+                    <Tabs value={tabValue} onChange={(_, v) => setTabValue(v)}>
                         <Tab icon={<StorageIcon />} label="Backup" iconPosition="start" />
                         <Tab icon={<NetworkIcon />} label="Connection" iconPosition="start" />
                         <Tab icon={<ScheduleIcon />} label="Schedule" iconPosition="start" />

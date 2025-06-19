@@ -17,7 +17,6 @@ import {
     AccordionSummary,
     AccordionDetails,
     Chip,
-    Divider,
     Card,
     CardContent,
     Grid,
@@ -32,10 +31,7 @@ import {
     Warning as WarningIcon,
     Schedule as ScheduleIcon,
     Security as SecurityIcon,
-    Settings as SettingsIcon,
-    CloudDownload as DownloadIcon,
     Folder as FolderIcon,
-    Terminal as TerminalIcon,
 } from '@mui/icons-material';
 
 interface TabPanelProps {
@@ -61,7 +57,7 @@ const TabPanel: React.FC<TabPanelProps> = ({ children, value, index, ...other })
 const TutorialPage: React.FC = () => {
     const [tabValue, setTabValue] = useState(0);
 
-    const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+    const handleTabChange = (_: React.SyntheticEvent, newValue: number) => {
         setTabValue(newValue);
     };
 

@@ -5,11 +5,14 @@ import {
     Container,
     Typography,
     Button,
+    List,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
     Paper,
     Grid,
     Card,
     CardContent,
-    CardActions,
     LinearProgress,
     Chip,
     Table,
@@ -75,9 +78,7 @@ const BackupPage: React.FC = () => {
     const [startDialogOpen, setStartDialogOpen] = useState(false);
     const [backupType, setBackupType] = useState<'full' | 'incremental'>('incremental');
     const [forceFullBackup, setForceFullBackup] = useState(false);
-    const [wsClient, setWsClient] = useState<WebSocketClient | null>(null);
 
-    const currentBackup = useAppSelector((state) => state.backup.currentBackup);
     const progress = useAppSelector((state) => state.backup.progress);
     const history = useAppSelector((state) => state.backup.history);
     const systemStatus = useAppSelector((state) => state.status.data);
@@ -97,7 +98,6 @@ const BackupPage: React.FC = () => {
             () => console.log('Progress WebSocket connected'),
             () => console.log('Progress WebSocket disconnected')
         );
-        setWsClient(client);
 
         // Poll for progress if backup is running
         const interval = setInterval(() => {
@@ -248,7 +248,7 @@ const BackupPage: React.FC = () => {
                 )}
 
                 <Paper>
-                    <Tabs value={tabValue} onChange={(e, v) => setTabValue(v)}>
+                    <Tabs value={tabValue} onChange={(_, v) => setTabValue(v)}>
                         <Tab label="History" />
                         <Tab label="Browse Backups" />
                     </Tabs>
@@ -317,7 +317,7 @@ const BackupPage: React.FC = () => {
                             component="div"
                             count={history.length}
                             page={page}
-                            onPageChange={(e, newPage) => setPage(newPage)}
+                            onPageChange={(_, newPage) => setPage(newPage)}
                             rowsPerPage={rowsPerPage}
                             onRowsPerPageChange={(e) => {
                                 setRowsPerPage(parseInt(e.target.value, 10));

@@ -1,7 +1,7 @@
 // frontend/src/store/backupSlice.ts
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { backupApi } from '../api/backup';
-import type { BackupRequest, BackupResult, BackupProgress, BackupHistoryItem } from '@/api/backup';
+import type { BackupRequest, BackupResult, BackupProgress, BackupHistoryItem } from '../api/backup';
 
 interface BackupState {
     currentBackup: BackupResult | null;

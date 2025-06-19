@@ -14,8 +14,6 @@ import {
     useTheme,
 } from '@mui/material';
 import {
-    LineChart,
-    Line,
     AreaChart,
     Area,
     BarChart,
@@ -147,7 +145,7 @@ const MonitoringPage: React.FC = () => {
                         <ToggleButtonGroup
                             value={metricsPeriod}
                             exclusive
-                            onChange={(e, v) => v && setMetricsPeriod(v)}
+                            onChange={(_, v) => v && setMetricsPeriod(v)}
                             size="small"
                         >
                             <ToggleButton value="1h">1H</ToggleButton>
@@ -286,7 +284,7 @@ const MonitoringPage: React.FC = () => {
                         <ToggleButtonGroup
                             value={bandwidthPeriod}
                             exclusive
-                            onChange={(e, v) => v && setBandwidthPeriod(v)}
+                            onChange={(_, v) => v && setBandwidthPeriod(v)}
                             size="small"
                         >
                             <ToggleButton value="1h">1H</ToggleButton>
