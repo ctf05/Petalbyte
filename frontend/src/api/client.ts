@@ -28,8 +28,8 @@ apiClient.interceptors.response.use(
     (response) => {
         return response;
     },
-    (error: AxiosError) => {
-        const message = error.response?.data?.detail || error.message || 'An error occurred';
+    (error: AxiosError<any>) => {
+        const message = (error.response?.data as any)?.detail || error.message || 'An error occurred';
 
         // Show notification for errors
         store.dispatch(showNotification({
@@ -45,7 +45,7 @@ apiClient.interceptors.response.use(
 export class WebSocketClient {
     private ws: WebSocket | null = null;
     private url: string;
-    private reconnectTimeout: NodeJS.Timeout | null = null;
+    private reconnectTimeout: ReturnType<typeof setTimeout> | null = null;
     private reconnectAttempts = 0;
     private maxReconnectAttempts = 5;
 

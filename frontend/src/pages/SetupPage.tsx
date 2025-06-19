@@ -91,10 +91,10 @@ const SetupPage: React.FC = () => {
 
             // Auto-fill detected devices
             if (result.boot_device) {
-                setConfig(prev => ({ ...prev, boot_device: result.boot_device }));
+                setConfig(prev => ({ ...prev, boot_device: result.boot_device! }));
             }
             if (result.root_device) {
-                setConfig(prev => ({ ...prev, root_device: result.root_device }));
+                setConfig(prev => ({ ...prev, root_device: result.root_device! }));
             }
         } catch (error) {
             console.error('Failed to detect devices:', error);
