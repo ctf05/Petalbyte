@@ -4,7 +4,6 @@ from pydantic import Field, validator
 from typing import Optional
 import json
 import os
-from pathlib import Path
 
 class Settings(BaseSettings):
     """Application settings with validation"""

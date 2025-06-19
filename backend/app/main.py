@@ -7,7 +7,7 @@ import logging
 import os
 
 from .api import router as api_router
-from .api.websocket import websocket_router
+from .api.websocket import router as websocket_router
 from .database import init_db
 from .config import get_settings
 from .core.scheduler import BackupScheduler

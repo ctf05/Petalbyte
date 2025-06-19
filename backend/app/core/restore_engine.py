@@ -89,7 +89,7 @@ class RestoreEngine:
                 else:
                     # Perform actual restore
                     restore_result = await self._restore_snapshot(
-                        unraid_host, remote_file, subvolume, target_path
+                        unraid_host, remote_file, subvolume, backup_date, target_path
                     )
                     results[subvolume] = restore_result
 
@@ -120,6 +120,7 @@ class RestoreEngine:
             unraid_host: str,
             remote_file: str,
             subvolume: str,
+            backup_date: str,
             target_path: Optional[str]
     ) -> Dict[str, Any]:
         """Restore a single snapshot"""

@@ -7,7 +7,7 @@ from pathlib import Path
 # Add app to path
 sys.path.insert(0, '/app/backend')
 
-from app.config import Settings
+from config import Settings
 
 def main():
     """Create default settings file"""
